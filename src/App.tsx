@@ -1,4 +1,5 @@
 import CaseStudioItem from './components/shared/caseStudioItem';
+import GuideItem from './components/shared/guideItem';
 import Header from './components/shared/header';
 import ServiceItem from './components/shared/serviceItem';
 import { Button } from './components/ui/button';
@@ -123,7 +124,7 @@ const App: React.FC = () => {
         </section>
 
         {/* let's make things happens  */}
-        <section className="bg-grey relative mt-[124px] rounded-[45px] p-[60px] tablet:p-[50px]">
+        <section className="bg-grey relative mt-[124px] rounded-[45px] p-[60px] tablet:mt-[70px] tablet:p-[50px]">
           <div className="mobile:text-left mobile mobile:gap-y-5 flex max-w-[500px] flex-col gap-y-[26px] laptop:max-w-[400px] laptop:text-center tablet:max-w-full tablet:items-center">
             <span className="block text-[30px] font-medium leading-[130%]">
               Let’s make things happen
@@ -165,6 +166,31 @@ const App: React.FC = () => {
               className="dekstop:px-[32px] px-[64px] tablet:hidden"
             />
             <CaseStudioItem text="For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales." />
+          </div>
+        </section>
+
+        {/* our working process */}
+        <section className="mt-[140px] tablet:mt-[60px]">
+          <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
+            <h4 className="bg-green mobile:text-[36px] flex h-[51px] items-center rounded-[7px] px-[7px] text-center text-[40px] font-medium">
+              Our Working Process
+            </h4>
+            <p className="mobile:text-center max-w-[292px] leading-[130%]">
+              Step-by-Step Guide to Achieving Your Business Goals
+            </p>
+          </div>
+
+          <div className="mt-[80px] flex flex-col gap-y-[30px] tablet:mt-[30px]">
+            {[
+              'Consultation',
+              'Research and Strategy Development',
+              'Implementation',
+              'Monitoring and Optimization',
+              'Reporting and Communication',
+              'Continual Improvement',
+            ].map((item, index) => (
+              <GuideItem key={index} title={item} index={index} />
+            ))}
           </div>
         </section>
       </main>
