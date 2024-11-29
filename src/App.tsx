@@ -1,3 +1,4 @@
+import CaseStudioItem from './components/shared/caseStudioItem';
 import Header from './components/shared/header';
 import ServiceItem from './components/shared/serviceItem';
 import { Button } from './components/ui/button';
@@ -84,17 +85,18 @@ const App: React.FC = () => {
               title1="Pay-per-click"
               title2="advertising"
               image="service2.svg"
-              bg="green"
-              bgText="white"
+              bg="bg-green"
+              bgText="bg-white"
             />
             <ServiceItem
               title1="Social Media"
               title2="Marketing"
               image="service3.svg"
-              bg="black"
-              bgText="white"
-              bgArrow="white"
-              arrow="black"
+              bg="bg-black"
+              bgText="bg-white"
+              bgArrow="bg-white"
+              arrowText="text-white"
+              arrow="text-black"
             />
             <ServiceItem
               title1="Email"
@@ -105,16 +107,17 @@ const App: React.FC = () => {
               title1="Content"
               title2="Creation"
               image="service5.svg"
-              bg="green"
-              bgText="white"
+              bg="bg-green"
+              bgText="bg-white"
             />
             <ServiceItem
               title1="Analytics and "
               title2="Tracking"
               image="service6.svg"
-              bg="black"
-              bgArrow="white"
-              arrow="black"
+              bg="bg-black"
+              bgArrow="bg-white"
+              arrow="text-black"
+              arrowText="text-white"
             />
           </div>
         </section>
@@ -136,6 +139,33 @@ const App: React.FC = () => {
             alt="thingsHappens"
             className="dekstop:right-0 absolute right-[135px] top-[-20px] laptop:top-6 laptop:w-[30%] tablet:hidden"
           />
+        </section>
+
+        {/* case studies */}
+        <section className="mt-[160px] laptop:mt-[60px]">
+          <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
+            <h4 className="bg-green flex h-[51px] items-center rounded-[7px] px-[7px] text-[40px] font-medium">
+              Case Studies
+            </h4>
+            <p className="max-w-[580px] leading-[130%]">
+              Explore Real-Life Examples of Our Proven Digital Marketing Success
+              through Our Case Studies
+            </p>
+          </div>
+
+          <div className="bg-dark dekstop:p-10 dekstop:items-center mt-[80px] flex h-[326px] justify-center rounded-[45px] px-[60px] py-[70px] text-white laptop:mt-[40px] tablet:grid tablet:grid-flow-col tablet:justify-start tablet:gap-x-[20px] tablet:overflow-x-scroll tablet:bg-white tablet:p-0">
+            <CaseStudioItem text="For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales." />
+            <img
+              src="line.svg"
+              className="dekstop:px-[32px] px-[64px] tablet:hidden"
+            />
+            <CaseStudioItem text="For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic." />
+            <img
+              src="line.svg"
+              className="dekstop:px-[32px] px-[64px] tablet:hidden"
+            />
+            <CaseStudioItem text="For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales." />
+          </div>
         </section>
       </main>
     </section>
