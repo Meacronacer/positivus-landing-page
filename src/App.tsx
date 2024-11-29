@@ -13,7 +13,7 @@ const ourParnetrs = [
 
 const App: React.FC = () => {
   return (
-    <section className="dekstop:pt-[30px] dekstop:px-[40px] mobile:pt-[15px] mobile:px-[20px] mx-auto max-w-[1440px] overflow-x-hidden px-[100px] pt-[60px]">
+    <section className="dekstop:pt-[30px] dekstop:px-[40px] mobile:pt-[15px] mobile:px-[20px] mx-auto max-w-[1440px] overflow-x-hidden px-[100px] pb-[200px] pt-[60px]">
       <Header />
 
       <main className="mt-[70px] tablet:mt-[40px]">
@@ -117,6 +117,25 @@ const App: React.FC = () => {
               arrow="black"
             />
           </div>
+        </section>
+
+        {/* let's make things happens  */}
+        <section className="bg-grey relative mt-[124px] rounded-[45px] p-[60px] tablet:p-[50px]">
+          <div className="mobile:text-left mobile mobile:gap-y-5 flex max-w-[500px] flex-col gap-y-[26px] laptop:max-w-[400px] laptop:text-center tablet:max-w-full tablet:items-center">
+            <span className="block text-[30px] font-medium leading-[130%]">
+              Let’s make things happen
+            </span>
+            <p className="leading-[130%]">
+              Contact us today to learn more about how our digital marketing
+              services can help your business grow and succeed online.
+            </p>
+            <Button>Get your free proposal</Button>
+          </div>
+          <img
+            src="thingsHappens.svg"
+            alt="thingsHappens"
+            className="dekstop:right-0 absolute right-[135px] top-[-20px] laptop:top-6 laptop:w-[30%] tablet:hidden"
+          />
         </section>
       </main>
     </section>
