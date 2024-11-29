@@ -1,4 +1,5 @@
 import Header from './components/shared/header';
+import ServiceItem from './components/shared/serviceItem';
 import { Button } from './components/ui/button';
 
 const ourParnetrs = [
@@ -59,6 +60,63 @@ const App: React.FC = () => {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* services */}
+        <section className="mt-[130px] laptop:mt-[60px]">
+          <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
+            <h3 className="bg-green flex h-[51px] items-center rounded-[7px] px-[7px] text-[40px] font-medium">
+              Services
+            </h3>
+            <p className="max-w-[580px] text-[18px] leading-[130%]">
+              At our digital marketing agency, we offer a range of services to
+              help businesses grow and succeed online. These services include:
+            </p>
+          </div>
+
+          <div className="dekstop:grid-cols-1 mt-[80px] grid grid-cols-2 gap-[40px] laptop:mt-[40px] laptop:gap-[30px]">
+            <ServiceItem
+              title1="Search engine"
+              title2="optimization"
+              image="service1.svg"
+            />
+            <ServiceItem
+              title1="Pay-per-click"
+              title2="advertising"
+              image="service2.svg"
+              bg="green"
+              bgText="white"
+            />
+            <ServiceItem
+              title1="Social Media"
+              title2="Marketing"
+              image="service3.svg"
+              bg="black"
+              bgText="white"
+              bgArrow="white"
+              arrow="black"
+            />
+            <ServiceItem
+              title1="Email"
+              title2="Marketing"
+              image="service4.svg"
+            />
+            <ServiceItem
+              title1="Content"
+              title2="Creation"
+              image="service5.svg"
+              bg="green"
+              bgText="white"
+            />
+            <ServiceItem
+              title1="Analytics and "
+              title2="Tracking"
+              image="service6.svg"
+              bg="black"
+              bgArrow="white"
+              arrow="black"
+            />
+          </div>
         </section>
       </main>
     </section>
