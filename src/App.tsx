@@ -1,9 +1,15 @@
+import { useRef, useState } from 'react';
 import CaseStudioItem from './components/shared/caseStudioItem';
 import GuideItem from './components/shared/guideItem';
 import Header from './components/shared/header';
+import ReviewItem from './components/shared/reviewItem';
 import ServiceItem from './components/shared/serviceItem';
 import TeamItem from './components/shared/teamItem';
 import { Button } from './components/ui/button';
+import Slider from 'react-slick';
+import DotIcon from './assets/dot.svg';
+import ArrowLeftIcon from './assets/arrow-left.svg';
+import ArrowRightIcon from './assets/arrow-right.svg';
 
 const ourParnetrs = [
   'amazon',
@@ -15,6 +21,41 @@ const ourParnetrs = [
 ];
 
 const App: React.FC = () => {
+  const [index, setIndex] = useState<number>(0);
+  let sliderRef = useRef<null>(null);
+  //@ts-ignore
+  const next = () => sliderRef.slickNext();
+  //@ts-ignore
+  const previous = () => sliderRef.slickPrev();
+
+  //@ts-ignore
+  const beforeChange = (prev, next) => {
+    setIndex(next);
+    //console.log(next, data.length - 5);
+  };
+
+  const settings = {
+    dots: false,
+    centerMode: true,
+    infinite: true,
+    className: 'flex items-center pb-[120px] tablet:pb-[40px]',
+    centerPadding: '70px tablet:10px',
+    speed: 500,
+    slidesToShow: 1.679,
+    slidesToScroll: 1,
+    arrow: false,
+    beforeChange: beforeChange,
+
+    responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: '0px',
+        },
+      },
+    ],
+  };
   return (
     <section className="mx-auto max-w-[1440px] overflow-x-hidden px-[100px] pb-[200px] pt-[60px] dekstop:px-[40px] dekstop:pt-[30px] mobile:px-[20px] mobile:pt-[15px]">
       <Header />
@@ -245,9 +286,58 @@ const App: React.FC = () => {
               description="2+ years of experience in writing and editing Skilled in creating compelling, SEO-optimized content for various industries"
             />
           </div>
-          <Button className="float-right mt-[40px] tablet:w-full">
+          <Button className="ml-auto mt-[40px] block tablet:w-full">
             See all team
           </Button>
+        </section>
+
+        {/* Testimonials */}
+        <section className="mt-[100px] tablet:mt-[60px]">
+          <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
+            <h4 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
+              Testimonials
+            </h4>
+            <p className="max-w-[473px] leading-[130%] laptop:text-center">
+              Hear from Our Satisfied Clients: Read Our Testimonials to Learn
+              More about Our Digital Marketing Services
+            </p>
+          </div>
+
+          <div className="relative mt-[80px] h-[625px] rounded-[45px] bg-dark pt-[84px] tablet:mt-[40px] tablet:pt-[30px]">
+            <Slider
+              ref={(slider) => {
+                //@ts-ignore
+                sliderRef = slider;
+              }}
+              {...settings}
+            >
+              <ReviewItem />
+              <ReviewItem />
+              <ReviewItem />
+              <ReviewItem />
+              <ReviewItem />
+            </Slider>
+
+            <div className="mx-auto flex max-w-[587px] items-center justify-between tablet:px-5">
+              <ArrowLeftIcon
+                onClick={previous}
+                className={`${index === 0 ? 'text-white/30' : 'cursor-pointer text-white'}`}
+              />
+              <ul className="asbolute bottom-0 left-0 right-0 flex items-center justify-center gap-x-[19px]">
+                {[0, 1, 2, 3, 4].map((item) => (
+                  <li>
+                    <DotIcon
+                      className={`${item === index ? 'text-green' : 'text-white'}`}
+                    />
+                  </li>
+                ))}
+              </ul>
+              <ArrowRightIcon
+                onClick={next}
+                className={`mr-5 tablet:mr-0 ${index === 4 ? 'text-white/30' : 'cursor-pointer text-white'}`}
+              />
+            </div>
+          </div>
         </section>
       </main>
     </section>

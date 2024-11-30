@@ -11,8 +11,8 @@ const TeamItem: React.FC<props> = ({ image, name, position, description }) => {
       <div className="relative flex items-end gap-x-[20px]">
         <img src={image} alt="profile" loading="lazy" />
         <div className="flex flex-col">
-          <span className="text-[20px] font-medium">{name}</span>
-          <span className="leading-[100%]">{position}</span>
+          <cite className="text-[20px] font-medium">{name}</cite>
+          <cite className="leading-[100%]">{position}</cite>
         </div>
         <img
           src="linkedin.svg"
