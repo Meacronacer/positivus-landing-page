@@ -38,8 +38,8 @@ const App: React.FC = () => {
     dots: false,
     centerMode: true,
     infinite: true,
-    className: 'flex items-center pb-[120px] tablet:pb-[40px]',
-    centerPadding: '70px tablet:10px',
+    className: 'pb-[120px] tablet:pb-[40px]',
+    centerPadding: '70px',
     speed: 500,
     slidesToShow: 1.679,
     slidesToScroll: 1,
@@ -338,6 +338,79 @@ const App: React.FC = () => {
               />
             </div>
           </div>
+        </section>
+
+        {/* Contact US */}
+        <section className="mt-[140px] tablet:mt-[60px]">
+          <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
+            <h4 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
+              Contact Us
+            </h4>
+            <p className="max-w-[323px] leading-[130%] laptop:text-center">
+              Connect with Us: Let's Discuss Your Digital Marketing Needs
+            </p>
+          </div>
+
+          <form className="relative mt-[80px] rounded-[45px] bg-grey px-[100px] pb-[80px] pt-[60px] tablet:mt-[40px] tablet:px-[30px] tablet:pt-[40px]">
+            <div className="flex max-w-[556px] flex-col gap-y-[40px] laptop:max-w-full">
+              <div className="flex items-center gap-x-[35px]">
+                <div className="flex items-center gap-x-[14px]">
+                  <input
+                    type="radio"
+                    className="h-[28px] w-[28px] appearance-none rounded-[50%] border-black bg-white outline outline-[1px] transition-all checked:border-[6px] checked:border-white checked:bg-green"
+                    id="first"
+                    name="radio"
+                    defaultChecked
+                  />
+                  <label htmlFor="first">Say Hi</label>
+                </div>
+                <div className="flex items-center gap-x-[14px]">
+                  <input
+                    type="radio"
+                    className="h-[28px] w-[28px] appearance-none rounded-[50%] border-black bg-white outline outline-[1px] transition-all checked:border-[6px] checked:border-white checked:bg-green"
+                    id="second"
+                    name="radio"
+                  />
+                  <label htmlFor="second">Get a Quote</label>
+                </div>
+              </div>
+              <div className="flex flex-col gap-y-[25px]">
+                <div className="flex flex-col gap-y-[5px]">
+                  <label>Name</label>
+                  <input
+                    placeholder="Name"
+                    className="rounded-[14px] border-[1px] px-[30px] py-[18px] focus:outline-none"
+                  />
+                </div>
+                <div className="flex flex-col gap-y-[5px]">
+                  <label>Email*</label>
+                  <input
+                    placeholder="Email"
+                    className="rounded-[14px] border-[1px] px-[30px] py-[18px] focus:outline-none"
+                  />
+                </div>
+                <div className="flex flex-col gap-y-[5px]">
+                  <label>Message*</label>
+                  <textarea
+                    placeholder="Email"
+                    className="h-[190px] resize-none rounded-[14px] border-[1px] px-[30px] py-[18px] focus:outline-none tablet:h-[132px]"
+                  />
+                </div>
+              </div>
+              <Button className="w-full tablet:absolute tablet:bottom-[-100px] tablet:left-0 tablet:right-0 tablet:mx-auto">
+                Send Message
+              </Button>
+            </div>
+            <div className="absolute right-0 top-[132px] laptop:hidden">
+              <img
+                src="formImage.svg"
+                alt="image"
+                loading="lazy"
+                height="648"
+                width="548"
+              />
+            </div>
+          </form>
         </section>
       </main>
     </section>
