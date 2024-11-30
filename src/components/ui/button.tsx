@@ -11,6 +11,8 @@ const ButtonsVariants = cva(
         default:
           'hover:bg-black hover:text-white active:bg-green bg-black text-white',
         white: '',
+        green:
+          'bg-green text-black hover:bg-grey hover:text-black active:bg-white/70',
       },
     },
     defaultVariants: {

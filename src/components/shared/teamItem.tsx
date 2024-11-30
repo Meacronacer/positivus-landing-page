@@ -16,6 +16,7 @@ const TeamItem: React.FC<props> = ({ image, name, position, description }) => {
         </div>
         <img
           src="linkedin.svg"
+          alt={name}
           className="absolute right-0 top-0 cursor-pointer duration-300 hover:scale-110"
         />
       </div>

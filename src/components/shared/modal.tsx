@@ -19,9 +19,10 @@ const Modal: React.FC<Imodal> = ({ setShowModal, showModal, children }) => {
       >
         <button
           onClick={() => setShowModal(false)}
-          className="active:bg-green absolute right-1 z-50 rounded-[50%] p-2"
+          aria-label="close Modal menu"
+          className="absolute right-1 z-50 rounded-[50%] p-2 active:bg-green"
         >
-          <img className="h-12 w-12" src="close-modal-btn.svg" />
+          <img className="h-12 w-12" src="close-modal-btn.svg" alt="close" />
         </button>
         {children}
       </div>

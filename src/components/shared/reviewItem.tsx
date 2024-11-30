@@ -11,6 +11,8 @@ const ReviewItem = () => {
         </p>
         <img
           src="reviewTriangle.svg"
+          alt="T"
+          loading="lazy"
           className="absolute bottom-[-28px] rotate-[-1deg]"
         />
       </div>

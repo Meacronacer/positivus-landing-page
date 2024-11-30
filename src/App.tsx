@@ -10,6 +10,7 @@ import Slider from 'react-slick';
 import DotIcon from './assets/dot.svg';
 import ArrowLeftIcon from './assets/arrow-left.svg';
 import ArrowRightIcon from './assets/arrow-right.svg';
+import Footer from './components/shared/footer';
 
 const ourParnetrs = [
   'amazon',
@@ -57,10 +58,10 @@ const App: React.FC = () => {
     ],
   };
   return (
-    <section className="mx-auto max-w-[1440px] overflow-x-hidden px-[100px] pb-[200px] pt-[60px] dekstop:px-[40px] dekstop:pt-[30px] mobile:px-[20px] mobile:pt-[15px]">
+    <section className="mx-auto max-w-[1440px] overflow-x-hidden pt-[60px] dekstop:pt-[30px] mobile:pt-[15px]">
       <Header />
 
-      <main className="mt-[70px] tablet:mt-[40px]">
+      <main className="mb-[140px] mt-[70px] px-[100px] dekstop:px-[40px] tablet:mb-[200px] tablet:mt-[40px] mobile:px-[20px]">
         {/* top content / book consultation */}
         <section>
           <div className="flex justify-between gap-x-5 tablet:flex-col">
@@ -73,7 +74,10 @@ const App: React.FC = () => {
                 online through a range of services including SEO, PPC, social
                 media marketing, and content creation.
               </p>
-              <Button className="tablet:mt-10 tablet:w-full">
+              <Button
+                aria-label="book a consultation"
+                className="tablet:mt-10 tablet:w-full"
+              >
                 Book a consultation
               </Button>
             </div>
@@ -175,7 +179,9 @@ const App: React.FC = () => {
               Contact us today to learn more about how our digital marketing
               services can help your business grow and succeed online.
             </p>
-            <Button>Get your free proposal</Button>
+            <Button aria-label="get yout free proposal">
+              Get your free proposal
+            </Button>
           </div>
           <img
             src="thingsHappens.svg"
@@ -200,11 +206,15 @@ const App: React.FC = () => {
             <CaseStudioItem text="For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales." />
             <img
               src="line.svg"
+              alt="line"
+              loading="lazy"
               className="px-[64px] dekstop:px-[32px] tablet:hidden"
             />
             <CaseStudioItem text="For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic." />
             <img
               src="line.svg"
+              alt="line"
+              loading="lazy"
               className="px-[64px] dekstop:px-[32px] tablet:hidden"
             />
             <CaseStudioItem text="For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales." />
@@ -214,9 +224,9 @@ const App: React.FC = () => {
         {/* our working process */}
         <section className="mt-[140px] tablet:mt-[60px]">
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
-            <h4 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-center text-[40px] font-medium mobile:text-[36px]">
+            <h5 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-center text-[40px] font-medium mobile:text-[36px]">
               Our Working Process
-            </h4>
+            </h5>
             <p className="max-w-[292px] leading-[130%] mobile:text-center">
               Step-by-Step Guide to Achieving Your Business Goals
             </p>
@@ -239,9 +249,9 @@ const App: React.FC = () => {
         {/* Team */}
         <section className="mt-[140px] tablet:mt-[60px]">
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
-            <h4 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
+            <h6 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
               Team
-            </h4>
+            </h6>
             <p className="max-w-[473px] leading-[130%] laptop:text-center">
               Meet the skilled and experienced team behind our successful
               digital marketing strategies
@@ -286,7 +296,10 @@ const App: React.FC = () => {
               description="2+ years of experience in writing and editing Skilled in creating compelling, SEO-optimized content for various industries"
             />
           </div>
-          <Button className="ml-auto mt-[40px] block tablet:w-full">
+          <Button
+            aria-label="see all team"
+            className="ml-auto mt-[40px] block tablet:w-full"
+          >
             See all team
           </Button>
         </section>
@@ -294,9 +307,9 @@ const App: React.FC = () => {
         {/* Testimonials */}
         <section className="mt-[100px] tablet:mt-[60px]">
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
-            <h4 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
+            <h6 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
               Testimonials
-            </h4>
+            </h6>
             <p className="max-w-[473px] leading-[130%] laptop:text-center">
               Hear from Our Satisfied Clients: Read Our Testimonials to Learn
               More about Our Digital Marketing Services
@@ -325,7 +338,7 @@ const App: React.FC = () => {
               />
               <ul className="asbolute bottom-0 left-0 right-0 flex items-center justify-center gap-x-[19px]">
                 {[0, 1, 2, 3, 4].map((item) => (
-                  <li>
+                  <li key={item}>
                     <DotIcon
                       className={`${item === index ? 'text-green' : 'text-white'}`}
                     />
@@ -343,9 +356,9 @@ const App: React.FC = () => {
         {/* Contact US */}
         <section className="mt-[140px] tablet:mt-[60px]">
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
-            <h4 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
+            <h6 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
               Contact Us
-            </h4>
+            </h6>
             <p className="max-w-[323px] leading-[130%] laptop:text-center">
               Connect with Us: Let's Discuss Your Digital Marketing Needs
             </p>
@@ -397,7 +410,10 @@ const App: React.FC = () => {
                   />
                 </div>
               </div>
-              <Button className="w-full tablet:absolute tablet:bottom-[-100px] tablet:left-0 tablet:right-0 tablet:mx-auto">
+              <Button
+                aria-label="send message"
+                className="w-full tablet:absolute tablet:bottom-[-100px] tablet:left-0 tablet:right-0 tablet:mx-auto"
+              >
                 Send Message
               </Button>
             </div>
@@ -413,6 +429,8 @@ const App: React.FC = () => {
           </form>
         </section>
       </main>
+
+      <Footer />
     </section>
   );
 };
