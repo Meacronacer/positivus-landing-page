@@ -260,7 +260,7 @@ const App: React.FC = () => {
 
           <div className="mt-[80px] grid grid-cols-3 gap-[40px] dekstop:grid-cols-2 tablet:mt-[40px] tablet:grid-cols-1">
             <TeamItem
-              image="picture.png"
+              image="team1.png"
               name="John Smith"
               position="CEO and Founder"
               description="10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy"
