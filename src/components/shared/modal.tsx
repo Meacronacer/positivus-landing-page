@@ -1,5 +1,3 @@
-// import ForgotPassword from './forgotPassword';
-
 import { Dispatch, SetStateAction } from 'react';
 
 interface Imodal {
