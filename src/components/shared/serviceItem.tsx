@@ -1,4 +1,5 @@
 import Arrow from '../../assets/service-arrow.svg';
+import useInView from '../../hooks/useVisible';
 
 interface props {
   image: string;
@@ -9,6 +10,7 @@ interface props {
   bgArrow?: 'bg-black' | 'bg-white';
   arrowText?: 'text-black' | 'text-white';
   arrow?: 'text-green' | 'text-black';
+  translate?: string;
 }
 
 const ServiceItem: React.FC<props> = ({
@@ -20,10 +22,14 @@ const ServiceItem: React.FC<props> = ({
   bgArrow = 'bg-black',
   arrowText = 'text-black',
   arrow = 'text-green',
+  translate = 'translate-x-[150px]',
 }) => {
+  const [isVisible, ref1] = useInView({ threshold: 0.1 });
+
   return (
     <div
-      className={`flex gap-x-3 laptop:relative ${bg} dekstop:max-w-full h-[310px] w-full max-w-[600px] items-center justify-between rounded-[45px] border-[1px] p-[50px] shadow-[rgba(0,0,15,1)_0px_5px_0px_0px]`}
+      ref={ref1 as React.RefObject<HTMLDivElement>}
+      className={`flex gap-x-3 laptop:relative ${bg} ${isVisible ? 'translate-x-0' : translate} h-[310px] w-full max-w-[600px] items-center justify-between rounded-[45px] border-[1px] p-[50px] shadow-[rgba(0,0,15,1)_0px_5px_0px_0px] transition-all duration-1000 dekstop:max-w-full`}
     >
       <div className="flex h-[210px] flex-col justify-between">
         <div>
@@ -46,7 +52,7 @@ const ServiceItem: React.FC<props> = ({
             <Arrow className={`${arrow} h-5 w-5`} />
           </div>
           <span
-            className={`group-hover:text-[#ff3000] ${arrowText} mobile:hidden text-[20px] leading-[140%] duration-300 laptop:text-[14px]`}
+            className={`group-hover:text-[#ff3000] ${arrowText} text-[20px] leading-[140%] duration-300 laptop:text-[14px] mobile:hidden`}
           >
             Learn more
           </span>

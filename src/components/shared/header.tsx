@@ -2,13 +2,25 @@ import { useState } from 'react';
 import { Button } from '../ui/button';
 import Modal from './modal';
 import LogoIcon from '../../assets/logo.svg';
+import useInView from '../../hooks/useVisible';
+import { cn } from '../../utils/twMerge';
 
 const Header: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [isVisible, ref] = useInView();
 
   return (
-    <header className="flex items-center justify-between px-[100px] dekstop:px-[40px] mobile:px-[20px]">
-      <a href="#">
+    <header
+      ref={ref}
+      className={cn(
+        'flex items-center justify-between px-[100px] transition-opacity duration-700 ease-in dekstop:px-[40px] mobile:px-[20px]',
+        {
+          'opacity-0': true,
+          'opacity-100': isVisible,
+        }
+      )}
+    >
+      <a href="#" aria-label="navigate to home page">
         <LogoIcon className="h-[36px] w-[220px] text-black laptop:max-w-[120px]" />
       </a>
       <div className="flex items-center gap-x-[40px] dekstop:gap-x-[18px]">

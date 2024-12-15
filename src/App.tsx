@@ -11,8 +11,10 @@ import DotIcon from './assets/dot.svg';
 import ArrowLeftIcon from './assets/arrow-left.svg';
 import ArrowRightIcon from './assets/arrow-right.svg';
 import Footer from './components/shared/footer';
+import { cn } from './utils/twMerge';
+import useInView from './hooks/useVisible';
 
-const ourParnetrs = [
+const ourParnetrs: string[] = [
   'amazon',
   'dribble',
   'hubspot',
@@ -23,6 +25,13 @@ const ourParnetrs = [
 
 const App: React.FC = () => {
   const [index, setIndex] = useState<number>(0);
+  const [isVisible1, ref1] = useInView();
+  const [isVisible2, ref2] = useInView();
+  const [isVisible3, ref3] = useInView();
+  const [isVisible4, ref4] = useInView();
+  const [isVisible5, ref5] = useInView();
+  const [isVisible6, ref6] = useInView();
+
   let sliderRef = useRef<null>(null);
   //@ts-ignore
   const next = () => sliderRef.slickNext();
@@ -32,7 +41,6 @@ const App: React.FC = () => {
   //@ts-ignore
   const beforeChange = (prev, next) => {
     setIndex(next);
-    //console.log(next, data.length - 5);
   };
 
   const settings = {
@@ -63,7 +71,13 @@ const App: React.FC = () => {
 
       <main className="mb-[140px] mt-[70px] px-[100px] dekstop:px-[40px] tablet:mb-[200px] tablet:mt-[40px] mobile:px-[20px]">
         {/* top content / book consultation */}
-        <section>
+        <section
+          ref={ref1}
+          className={cn('transition-opacity duration-700 ease-in', {
+            'opacity-0': true,
+            'opacity-100': isVisible1,
+          })}
+        >
           <div className="flex justify-between gap-x-5 tablet:flex-col">
             <div className="flex max-w-[531px] flex-col gap-y-[35px] tablet:contents">
               <h1 className="text-[60px] font-medium leading-[130%] tablet:order-[-3] tablet:text-[43px]">
@@ -127,6 +141,7 @@ const App: React.FC = () => {
               title1="Search engine"
               title2="optimization"
               image="service1.svg"
+              translate="translate-x-[-150px]"
             />
             <ServiceItem
               title1="Pay-per-click"
@@ -144,6 +159,7 @@ const App: React.FC = () => {
               bgArrow="bg-white"
               arrowText="text-white"
               arrow="text-black"
+              translate="translate-x-[-150px]"
             />
             <ServiceItem
               title1="Email"
@@ -156,6 +172,7 @@ const App: React.FC = () => {
               image="service5.svg"
               bg="bg-green"
               bgText="bg-white"
+              translate="translate-x-[-150px]"
             />
             <ServiceItem
               title1="Analytics and "
@@ -170,7 +187,16 @@ const App: React.FC = () => {
         </section>
 
         {/* let's make things happens  */}
-        <section className="relative mt-[124px] rounded-[45px] bg-grey p-[60px] tablet:mt-[70px] tablet:p-[50px]">
+        <section
+          ref={ref2}
+          className={cn(
+            'relative mt-[124px] rounded-[45px] bg-grey p-[60px] transition-all duration-700 ease-in tablet:mt-[70px] tablet:p-[50px]',
+            {
+              'opacity-0': true,
+              'opacity-100': isVisible2,
+            }
+          )}
+        >
           <div className="mobile flex max-w-[500px] flex-col gap-y-[26px] laptop:max-w-[400px] laptop:text-center tablet:max-w-full tablet:items-center mobile:gap-y-5 mobile:text-left">
             <span className="block text-[30px] font-medium leading-[130%]">
               Let’s make things happen
@@ -191,7 +217,16 @@ const App: React.FC = () => {
         </section>
 
         {/* case studies */}
-        <section className="mt-[160px] laptop:mt-[60px]">
+        <section
+          ref={ref3}
+          className={cn(
+            'mt-[160px] transition-opacity duration-700 ease-in laptop:mt-[60px]',
+            {
+              'opacity-0': true,
+              'opacity-100': isVisible3,
+            }
+          )}
+        >
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
             <h4 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
               Case Studies
@@ -241,13 +276,31 @@ const App: React.FC = () => {
               'Reporting and Communication',
               'Continual Improvement',
             ].map((item, index) => (
-              <GuideItem key={index} title={item} index={index} />
+              <GuideItem
+                tranlate={
+                  index % 2 === 0
+                    ? 'translate-x-[-200px]'
+                    : 'translate-x-[200px]'
+                }
+                key={index}
+                title={item}
+                index={index}
+              />
             ))}
           </div>
         </section>
 
         {/* Team */}
-        <section className="mt-[140px] tablet:mt-[60px]">
+        <section
+          ref={ref4}
+          className={cn(
+            'mt-[140px] transition-opacity duration-700 ease-in tablet:mt-[60px]',
+            {
+              'opacity-0': true,
+              'opacity-100': isVisible4,
+            }
+          )}
+        >
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
             <h6 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
               Team
@@ -305,7 +358,16 @@ const App: React.FC = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="mt-[100px] tablet:mt-[60px]">
+        <section
+          ref={ref5}
+          className={cn(
+            'mt-[100px] transition-opacity duration-700 ease-in tablet:mt-[60px]',
+            {
+              'opacity-0': true,
+              'opacity-100': isVisible5,
+            }
+          )}
+        >
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
             <h6 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
               Testimonials
@@ -354,7 +416,16 @@ const App: React.FC = () => {
         </section>
 
         {/* Contact US */}
-        <section className="mt-[140px] tablet:mt-[60px]">
+        <section
+          ref={ref6}
+          className={cn(
+            'mt-[140px] transition-opacity duration-500 ease-in tablet:mt-[60px]',
+            {
+              'opacity-0': true,
+              'opacity-100': isVisible6,
+            }
+          )}
+        >
           <div className="flex items-center gap-x-[40px] gap-y-[30px] laptop:flex-col">
             <h6 className="flex h-[51px] items-center rounded-[7px] bg-green px-[7px] text-[40px] font-medium">
               Contact Us

@@ -1,9 +1,22 @@
 import LogoIcon from '../../assets/logo.svg';
+import useInView from '../../hooks/useVisible';
+import { cn } from '../../utils/twMerge';
 import { Button } from '../ui/button';
 
-const Footer = () => {
+const Footer: React.FC = () => {
+  const [isVisible, ref] = useInView();
+
   return (
-    <section className="mx-[100px] h-[514px] rounded-t-[45px] bg-dark px-[60px] py-[55px] text-white dekstop:mx-[40px] dekstop:h-fit tablet:px-[20px] mobile:mx-0 mobile:rounded-t-[0px]">
+    <section
+      ref={ref}
+      className={cn(
+        'mx-[100px] h-[514px] rounded-t-[45px] bg-dark px-[60px] py-[55px] text-white transition-opacity duration-700 ease-in dekstop:mx-[40px] dekstop:h-fit tablet:px-[20px] mobile:mx-0 mobile:rounded-t-[0px]',
+        {
+          'opacity-0': true,
+          'opacity-100': isVisible,
+        }
+      )}
+    >
       <div className="flex items-center justify-between gap-y-[37px] laptop:flex-col">
         <LogoIcon className="h-[29px] w-[180px]" />
         <ul className="flex items-center gap-x-[40px] gap-y-[15px] tablet:flex-col">
